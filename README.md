@@ -290,7 +290,19 @@ To get syntax highlighting inside embedded templates and support for the GJS
 file extension, you may need to configure your editor.
 
 ### Visual Studio Code
-The [vscode-glimmer](https://marketplace.visualstudio.com/items?itemName=chiragpat.vscode-glimmer) plugin handles syntax highlighting for both proposed formats.
+The [Glimmer Templates Syntax for VS Code](https://marketplace.visualstudio.com/items?itemName=lifeart.vscode-glimmer-syntax) plugin handles syntax highlighting for both proposed formats.
+
+You'll also want to disable some of the internal validation built into VSCode like JS and ESLint for the time being due to parsing errors.
+Add the following to `.vscode/settings.json`:
+
+```json
+{
+  "javascript.validate.enable": false,
+  "eslint.enable": false
+}
+```
+
+> Note that you might also need to add `"typescript.validate.enable": false` if using `.gts` for the same reasons, since there is no way to ignore a block of code for TS parsing.
 
 ### Neovim
 
